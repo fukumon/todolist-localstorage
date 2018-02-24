@@ -1,0 +1,21 @@
+.hdr {
+  /* opacity: 0; */
+  display: none;
+  position: relative;
+  background-color: #00f;
+}
+
+.link {
+  position: fixed;
+  top: 0;
+  left: 2em;
+  display: block;
+  background-color: #f00;
+}
+
+.inner {
+  width: 980px;
+  margin: 50px auto 0;
+  padding: 30px;
+  background-color: #fa0;
+}
