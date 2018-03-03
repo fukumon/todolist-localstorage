@@ -1,21 +1,70 @@
-.hdr {
-  /* opacity: 0; */
-  display: none;
-  position: relative;
-  background-color: #00f;
+@charset "UTF-8";
+
+* {
+  box-sizing: border-box;
 }
 
-.link {
-  position: fixed;
-  top: 0;
-  left: 2em;
-  display: block;
-  background-color: #f00;
+h1 {
+  padding: 15px 0;
+  font-weight: bold;
+  font-size: 32px;
+  text-align: center;
 }
 
-.inner {
-  width: 980px;
-  margin: 50px auto 0;
+.form {
+  width: 40%;
+  margin: 0 auto;
   padding: 30px;
-  background-color: #fa0;
+  border: 3px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0 0 3px 3px #888;
+}
+
+.form dl {
+  display: flex;
+  width: 100%;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.form dt {
+  width: 20%;
+}
+
+.form dl:first-child {
+  margin-bottom: 20px;
+}
+
+.form dd {
+  width: 80%;
+}
+
+.form input, .form textarea {
+  width: 90%;
+  padding: 10px;
+  border: 3px solid #ddd;
+  border-radius: 5px;
+}
+
+.add-btn {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+  padding: 10px 30px;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+
+.to-do-area {
+  display: flex;
+  justify-content: flex-start;
+  flex-flow: row wrap;
+  margin-top: 30px;
+}
+
+.to-do-area li {
+  width: 33.333%;
+  border: 2px solid #ddd;
 }

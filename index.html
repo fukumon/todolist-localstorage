@@ -4,19 +4,30 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
+  <title>todolist</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
   <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-  <div id="wrapper">
-    <header class="hdr">
-      <a href="" class="link">リンク</a>
-      <p>ヘッダー</p>
-    </header>
-    <div class="inner">
-      ああああああ
-    </div>
-  </div>
+  <h1>TO DO LIST</h1>
+  <form class="form">
+    <dl>
+      <dt><label for="title">タイトル</label></dt>
+      <dd><input type="text" name="title" placeholder="タイトルを入力" id="title" value=""></dd>
+    </dl>
+    <dl>
+      <dt><label for="content">内容</label></dt>
+      <dd><textarea name="content" id="content" cols="30" rows="10" placeholder="本文を入力"></textarea></dd>
+    </dl>
+    <button type="button" id="add-btn" class="add-btn">追加</button>
+  </form>
+  <ul id="to-do-area" class="to-do-area">
+  
+  </ul>
+  <!-- <p id="text">サンプルテキスト</p> -->
+  <!-- <button id="copy-btn">コピーする</button> -->
+  <!-- <p id="result-text"></p> -->
+  <!-- <div id="result-area"></div> -->
+  <script src="./script.js"></script>
 </body>
 </html>
