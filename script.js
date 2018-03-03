@@ -19,16 +19,31 @@ var input = document.getElementById('title');
 var textarea = document.getElementById('content');
 var addBtn = document.getElementById('add-btn');
 var toDoArea = document.getElementById('to-do-area');
+var toDoItems = [];
 
 addBtn.addEventListener('click', function() {
   var title = input.value;
   var content = textarea.value;
+  var toDoItem = {
+    title: title,
+    content: content,
+  };
+
+  toDoItems.push(toDoItem);
+  var data = JSON.stringify(toDoItems);
+  localStorage.setItem('todo', data);
+
+  displayToDo(title, content);
+});
+
+// todoの表示
+function displayToDo(ttl, cnt) {
   var ttlElem = document.createElement('h2');
   var cntElem = document.createElement('p');
-  ttlElem.innerHTML = title;
-  cntElem.innerHTML = content;
+  ttlElem.innerHTML = ttl;
+  cntElem.innerHTML = cnt;
   var toDo = document.createElement('li');
   toDo.appendChild(ttlElem);
   toDo.appendChild(cntElem);
   toDoArea.appendChild(toDo);
-});
+}
