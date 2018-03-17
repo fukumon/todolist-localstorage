@@ -21,27 +21,38 @@ var addBtn = document.getElementById('add-btn');
 var removeBtn = document.getElementById('remove-btn');
 var toDoArea = document.getElementById('to-do-area');
 var toDoItems = [];
-var toDoCount = 1;
+var form = document.forms['to-do-form'];
+console.dir(form);
 
 function addToDo() {
+  var id = Math.random();
   var title = input.value;
   var content = textarea.value;
+  // タイトルが空だった場合の処理
+  if (!title) {
+    return false;
+  }
 
   var toDoItem = {
+    id: id,
     title: title,
     content: content,
   };
 
-  saveLoacalStorage(toDoItem);
+  saveData(toDoItem);
   displayToDo(toDoItem);
   // 入力エリアを空にする
   input.value = '';
   textarea.value = '';
 }
 
-function saveLoacalStorage(data) {
+function saveData(data) {
   toDoItems.push(data);
-  var data = JSON.stringify(toDoItems);
+  saveLocalStorage(toDoItems);
+}
+
+function saveLocalStorage(dataArray) {
+  var data = JSON.stringify(dataArray);
   localStorage.setItem('todo', data);
 }
 
@@ -59,9 +70,13 @@ function displayToDo(toDoObj) {
   deleteBtn.addEventListener('click', function() {
     toDoArea.removeChild(toDo);
 
-    var tgt = toDoItems.find(function(toDo) {
+    var result = toDoItems.find(function(elem) {
+      return elem.id === toDoObj.id;
     });
-
+    var tgtIndex = toDoItems.indexOf(result);
+    toDoItems.splice(tgtIndex, 1);
+    // console.log(toDoItems);
+    saveLocalStorage(toDoItems);
   });
 
   var toDo = document.createElement('li');
@@ -114,29 +129,3 @@ function removeToDo() {
 }
 
 removeBtn.addEventListener('click', removeToDo);
-
-
-var array = [
-    {
-      id: 1,
-      prop:'大吉',
-    },
-    {
-      id: 2,
-      prop:'中吉',
-    },
-    {
-      id: 3,
-      prop:'小吉',
-    },
-    {
-      id: 4,
-      prop:'末吉',
-    },
-];
-
-var result = array.find(function(a) {
-  return a.id === 2 && a.prop === '小吉';
-});
-
-console.log(result);
